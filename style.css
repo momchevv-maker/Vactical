@@ -1,0 +1,296 @@
+/* Базови настройки */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #111;
+  background-color: #f5f5f5;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Хедър */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(44, 88, 74, 0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  padding-left: 20px; 
+  padding-right: 20px;
+}
+
+.logo-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-weight: 200;
+  color: #000;
+  opacity: 0.9;
+  padding-left: 24px;
+}
+
+
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.logo img:hover {
+  opacity: 0.8;
+}
+
+.main-nav a {
+  margin-left: 24px;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  position: relative;
+  animation: pulse 0.25s ease;
+  display: inline-block;
+  transition: transform 0.1s ease;
+}
+
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 1px;
+  background: #111;
+  transition: width 0.25s ease;
+}
+
+.main-nav a:hover::after {
+  width: 100%;
+}
+
+/* Hero */
+.hero {
+  padding: 120px 0 80px;
+}
+
+.hero-inner {
+  display: flex;
+  align-items: center;
+  min-height: 40vh;
+}
+
+.hero-text h1 {
+  font-size: 40px;
+  max-width: 520px;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.hero-text p {
+  font-size: 16px;
+  max-width: 420px;
+  color: #555;
+}
+
+/* About Art */
+.about-art {
+  padding: 80px 0 100px;
+  background: #f5f5f5;
+}
+
+.about-art-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 64px;
+  align-items: center;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 12px;
+  margin-bottom: 12px;
+  color: #777;
+}
+
+.about-art-text h2 {
+  font-size: 30px;
+  line-height: 1.2;
+  margin-bottom: 18px;
+}
+
+.about-art-text .lead {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 14px;
+  color: #333;
+}
+
+.about-art-text p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #444;
+}
+
+.about-art-image {
+  justify-self: center;
+}
+
+.image-frame {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.22);
+  transform: translateY(0);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.image-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.image-frame:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.28);
+}
+
+/* Галерия и контакт – placeholder стил */
+.gallery,
+.contact {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+.gallery h2,
+.contact h2 {
+  font-size: 26px;
+  margin-bottom: 12px;
+}
+
+/* Footer */
+.site-footer {
+  padding: 30px 0 40px;
+  background: #f5f5f5;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  text-align: center;
+  font-size: 13px;
+  color: #777;
+}
+
+/* Анимация при скрол */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Респонсив */
+@media (max-width: 900px) {
+  .about-art-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-art-image {
+    order: -1;
+  }
+
+  .hero {
+    padding-top: 100px;
+  }
+
+  .hero-text h1 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-inner {
+    justify-content: space-between;
+  }
+
+  .main-nav {
+    display: none; /* тук можеш да добавиш мобилно меню по-късно */
+  }
+
+  .hero-inner {
+    min-height: 30vh;
+  }
+}
+.vacta-frame {
+  padding: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  border-radius: 12px;
+  position: relative;
+  display: inline-block;
+  background: #fafafa;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.vacta-frame:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+
+.vacta-frame img {
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+}
+html {
+  scroll-behavior: smooth;
+}
+.logo-text:active {
+  transform: scale(0.96);
+  transition: transform 0.1s ease;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.92);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
